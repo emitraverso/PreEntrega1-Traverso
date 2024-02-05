@@ -46,33 +46,45 @@ alert("El costo total de los servicios seleccionados es: $ " + total);
 
 
 if (total > 0) {
-    pago = prompt("Seleccione el tiempo de contratación: \n 1 - 1 Mes \n 2 - 3 Meses - 10 % dto. \n 3 - 6 Meses - 15% dto. \n 4 - 12 Meses - 20% dto.");
-    let flag = "True"
-    while(flag == "True"){
+    pago = prompt("Seleccione el tiempo de contratación de los servicios: \n 1 - 1 Mes \n 2 - 3 Meses - 10 % dto. \n 3 - 6 Meses - 15% dto. \n 4 - 12 Meses - 20% dto. \n X para cancelar");
+    let flag = true;
+    while(flag){
         switch(pago){
         case "1":
             cuota = calcularDto(total,0);
-            flag = "False";
+            flag = false;
             break;
         case "2":
             cuota = calcularDto(total,0.1);
-            flag = "False";
+            flag = false;
             break;
         case "3":
             cuota = calcularDto(total,0.15);
-            flag = "False";
+            flag = false;
             break;
         case "4":
             cuota = calcularDto(total,0.2);
-            flag = "False";
+            flag = false;
             break;
+        case "X":
+            alert("Ha cancelado la contratación, esperamos que nos visite nuevamente para poder ofrecerle alguno de nuestros servicios.");
+            flag = false;
+            cuota = 0;
+            break; 
+        case "x":
+            alert("Ha cancelado la contratación, esperamos que nos visite nuevamente para poder ofrecerle alguno de nuestros servicios.");
+            flag = false;
+            cuota = 0;
+            break;            
         default:
             alert("El número ingresado no corresponde a una opción válida.");
-            pago = prompt("Seleccione el tiempo de contratación: \n 1 - 1 Mes \n 2 - 3 Meses - 10 % dto. \n 3 - 6 Meses - 15% dto. \n 4 - 12 Meses - 20% dto.");
+            pago = prompt("Seleccione el tiempo de contratación: \n 1 - 1 Mes \n 2 - 3 Meses - 10 % dto. \n 3 - 6 Meses - 15% dto. \n 4 - 12 Meses - 20% dto. \n X para cancelar");
         }
     }
-    alert("GRACIAS POR ELEGIRNOS! \nEl costo mensual a abonar por el total de los servicios contratados es de : $ " + cuota);
-
+    if (cuota > 0) { 
+        alert("GRACIAS POR ELEGIRNOS! \nEl costo mensual a abonar por el total de los servicios contratados es de : $ " + cuota);
+    }
+        
 }
 
 
