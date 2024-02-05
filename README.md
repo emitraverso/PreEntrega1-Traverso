@@ -1,7 +1,5 @@
-<h1 align="center">Hi 👋, This iss INTEGRALOG</h1>
+<h1 align="center">Hi 👋, This is INTEGRALOG</h1>
 <h3 align="center">A project about logistics consulting services</h3>
-
-- 🌱 I’m currently learning **Javascript**
 
 - 📫 How to reach me **traversoemilia@gmail.com**
 
