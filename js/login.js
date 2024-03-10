@@ -23,7 +23,7 @@ formLogin.addEventListener("submit", (e) => {
     }
     
     if(validarUsuario(informacion) != "no"){
-        location.href="./pages/index.html";
+        location.href="../index.html";
     }else{
         mensaje.innerText="Credenciales incorrectas";
     }

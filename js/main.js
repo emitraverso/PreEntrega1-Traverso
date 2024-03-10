@@ -1,11 +1,11 @@
 //Declaración de variables:
 const servicios = [
-    { id: "1", descripcion: "Depósitos y Almacenamiento", imagen: "../img/deposito-almacenamiento.png", precio: 10000 },
-    { id: "2", descripcion: "Distibución y Transporte", imagen: "../img/camion.png", precio: 8000 },
-    { id: "3", descripcion: "Ruteo y Seguridad", imagen: "../img/tracking.png", precio: 10000 },
-    { id: "4", descripcion: "Análisis de costos y diseño de indicadores", imagen: "../img/performance.png", precio: 15000 },
-    { id: "5", descripcion: "Capacitación de Equipos", imagen: "../img/meeting.png", precio: 15000 },
-    { id: "6", descripcion: "Comercio Exterior", imagen: "../img/comercio-ext.png", precio: 20000 },
+    { id: "1", descripcion: "Depósitos y Almacenamiento", imagen: "./img/deposito-almacenamiento.png", precio: 10000 },
+    { id: "2", descripcion: "Distibución y Transporte", imagen: "./img/camion.png", precio: 8000 },
+    { id: "3", descripcion: "Ruteo y Seguridad", imagen: "./img/tracking.png", precio: 10000 },
+    { id: "4", descripcion: "Análisis de costos y diseño de indicadores", imagen: "./img/performance.png", precio: 15000 },
+    { id: "5", descripcion: "Capacitación de Equipos", imagen: "./img/meeting.png", precio: 15000 },
+    { id: "6", descripcion: "Comercio Exterior", imagen: "./img/comercio-ext.png", precio: 20000 },
 ];
 const opcionesContratacion = [
     { id: "1", descripcion: "1 mes", descuento: 0 },
