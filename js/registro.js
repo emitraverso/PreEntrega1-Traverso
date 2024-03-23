@@ -31,7 +31,7 @@ formRegistro.addEventListener("submit", (e) => {
         Toastify({
             text: "Se ha registrado correctamente",
             duration: 3000,
-            destination: "./login.html",
+            destination: "../index.html",
             newWindow: true,
             close: true,
             gravity: "top", // `top` or `bottom`

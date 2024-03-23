@@ -23,7 +23,8 @@ formLogin.addEventListener("submit", (e) => {
     }
     
     if(validarUsuario(informacion) != "no"){
-        location.href="../index.html";
+        location.href="./pages/inicio.html";
+        localStorage.setItem("info-user", JSON.stringify(informacion));
     }else{
         mensaje.innerText="Credenciales incorrectas";
     }

@@ -1,29 +1,28 @@
 //Declaración de variables:
-const servicios = [
-    { id: "1", descripcion: "Depósitos y Almacenamiento", imagen: "./img/deposito-almacenamiento.png", precio: 10000 },
-    { id: "2", descripcion: "Distibución y Transporte", imagen: "./img/camion.png", precio: 8000 },
-    { id: "3", descripcion: "Ruteo y Seguridad", imagen: "./img/tracking.png", precio: 10000 },
-    { id: "4", descripcion: "Análisis de costos y diseño de indicadores", imagen: "./img/performance.png", precio: 15000 },
-    { id: "5", descripcion: "Capacitación de Equipos", imagen: "./img/meeting.png", precio: 15000 },
-    { id: "6", descripcion: "Comercio Exterior", imagen: "./img/comercio-ext.png", precio: 20000 },
-];
-const opcionesContratacion = [
-    { id: "1", descripcion: "1 mes", descuento: 0 },
-    { id: "2", descripcion: "3 meses", descuento: 0.1 },
-    { id: "3", descripcion: "6 meses", descuento: 0.15 },
-    { id: "4", descripcion: "12 meses", descuento: 0.2 },
-];
+
 let serviciosContratados;
 
 //Llamada a objetos del DOM:
 
 const contenedorServicios = document.querySelector("#contenedor-servicios");
 let botonAgregarServicio = document.querySelectorAll(".servicio-contratar");
-let numeroCarrito = document.querySelector("#numero-carrito")
+let numeroCarrito = document.querySelector("#numero-carrito");
 
-//Funcion que recorre array de servicios para mostrarlos en el Index y asignarles el "eventListener" a los bootones "CONTRATAR": 
 
-function mostrarServicios() {
+//Funcion que utiliza Fetch para traer array de servicios del archivo db.json 
+async function serviciosFetch() {
+  const response = await 
+  fetch("../db/db.json")
+  const data = await response.json()
+  const {servicios} = data;
+  return servicios;
+}
+
+
+//Funcion que recorre array de servicios para mostrarlos en el Index y asignarles el "eventListener" a los botones "CONTRATAR": 
+async function mostrarServicios() {
+  
+    const servicios = await serviciosFetch(); 
 
     contenedorServicios.innerHTML="";
     for (const servicio of servicios) {
@@ -50,11 +49,13 @@ function mostrarServicios() {
         serviciosContratados = [];
     }
 }
-//Funcion que agrega el servicio al array de servicios seleccionados, devuelve un aviso si el mismo ya se había agregado anteriormente, e incrementa el nro al aldo del icono del carrito con la cant de servicios agregados: 
-function agregarServicio(e) {
+
+//Funcion que agrega el servicio al array de servicios seleccionados, devuelve una alerta si el mismo ya se había agregado anteriormente, e incrementa el nro al aldo del icono del carrito con la cant de servicios agregados: 
+async function agregarServicio(e) {
     const id = e.currentTarget.id;
-    const servicioSeleccionado = servicios.find(servicio => servicio.id==id );
-    
+    const servicios = await serviciosFetch();
+    const servicioSeleccionado = servicios.find(servicio => servicio.id==id);
+   
     if(serviciosContratados.some(servicio => servicio.id==id)){
         Swal.fire({
             icon: "warning",
@@ -87,17 +88,19 @@ function agregarServicio(e) {
               background: "linear-gradient(to right, #00b09b, #96c93d)",
             },
           }).showToast();
-
     }   
-    
-    
+        
     let numero = serviciosContratados.length;
     numeroCarrito.innerText = numero;
     
     localStorage.setItem("carrito-servicios", JSON.stringify(serviciosContratados));
-    localStorage.setItem("nro-carrito", JSON.stringify(numeroCarrito.innerText));
-    
+    localStorage.setItem("nro-carrito", JSON.stringify(numeroCarrito.innerText));    
 }
 
 
+
 mostrarServicios();
+
+ 
+
+ 
