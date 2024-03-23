@@ -95,6 +95,7 @@ function contratar() {
     mostrarCarrito();
     mensaje.innerText="Gracias por elegir nuestros servicios! \nNos pondremos en contacto al e-mail: "+ infoUsuario.mail + ".";
     carritoBotones.classList.add("inactivo");
+    
 
     Swal.fire({
         position: "center",

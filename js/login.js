@@ -4,6 +4,8 @@ const password = document.querySelector("#login-password");
 const formLogin = document.querySelector("#form-login");
 const mensaje = document.querySelector("#mensaje");
 
+localStorage.removeItem("info-user");
+
 let usuarios = JSON.parse(localStorage.getItem("usuarios-registrados")) || [];
 
 function validarUsuario(informacion){
