@@ -4,7 +4,6 @@ const password = document.querySelector("#login-password");
 const formLogin = document.querySelector("#form-login");
 const mensaje = document.querySelector("#mensaje");
 
-localStorage.removeItem("info-user");
 
 let usuarios = JSON.parse(localStorage.getItem("usuarios-registrados")) || [];
 
@@ -26,7 +25,6 @@ formLogin.addEventListener("submit", (e) => {
     
     if(validarUsuario(informacion) != "no"){
         location.href="./pages/inicio.html";
-        localStorage.setItem("info-user", JSON.stringify(informacion));
     }else{
         mensaje.innerText="Credenciales incorrectas";
     }

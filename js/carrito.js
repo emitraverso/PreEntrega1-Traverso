@@ -13,7 +13,6 @@ const btnContratar = document.querySelector("#contratar");
 
 let numeroCarrito = JSON.parse(localStorage.getItem("nro-carrito"));
 const serviciosContratados = JSON.parse(localStorage.getItem("carrito-servicios"));
-const infoUsuario = JSON.parse(localStorage.getItem("info-user"));
 
 
 //Funcion que recorre array de servicios contratados. para mostrarlos y asignarles el "eventListener" a los botones "ELIMINAR": 
@@ -93,7 +92,7 @@ function contratar() {
     localStorage.setItem("nro-carrito", JSON.stringify(numeroCarrito));
     
     mostrarCarrito();
-    mensaje.innerText="Gracias por elegir nuestros servicios! \nNos pondremos en contacto al e-mail: "+ infoUsuario.mail + ".";
+    mensaje.innerText="Gracias por elegir nuestros servicios!";
     carritoBotones.classList.add("inactivo");
     
 
